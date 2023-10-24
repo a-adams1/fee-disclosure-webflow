@@ -1,3 +1,11 @@
+function truncateFilename(filename, maxCharsPerLine = 40) {
+        const maxLength = maxCharsPerLine;
+
+        if (filename.length > maxLength) {
+          return filename.substr(0, maxLength - 1) + "...";
+        }
+        return filename;
+      }
 function showFileName() {
         document.getElementById('infoBox').style.display = 'none';
         document.getElementById('result').innerHTML = '';
