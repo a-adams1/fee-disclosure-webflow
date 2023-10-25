@@ -1,4 +1,4 @@
-let hContainer;
+let hContainer, pdfFileName, pdfData;
 const subbutton = document.querySelector('#submit-Button');
 subbutton.addEventListener('click', function () {
 document.getElementById('first-page').style.display = 'none';
@@ -10,7 +10,9 @@ if (document.getElementById('file-name').innerHTML.trim() !== '') {
 function submitButton() {
 var fileInput = document.getElementById('file');
 const file = fileInput.files[0];
-         var formData = new FormData();
+  pdfFileName = file.name;
+  pdfData = base64data;
+  var formData = new FormData();
   formData.append("pdf_file", file);
   sendDataToAPI(formData); }
 
