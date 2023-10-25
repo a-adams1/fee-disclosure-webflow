@@ -1,3 +1,19 @@
+let hContainer;
+const subbutton = document.querySelector('#submit-Button');
+subbutton.addEventListener('click', function () {
+document.getElementById('first-page').style.display = 'none';
+hContainer = document.querySelector('.container h1');
+hContainer.textContent = "Fee disclosure analysis";
+if (document.getElementById('file-name').innerHTML.trim() !== '') {
+  this.disabled = true;
+  submitButton();}});
+function submitButton() {
+var fileInput = document.getElementById('file');
+const file = fileInput.files[0];
+         var formData = new FormData();
+  formData.append("pdf_file", file);
+  sendDataToAPI(formData); }
+
 function truncateFilename(filename, maxCharsPerLine = 40) {
         const maxLength = maxCharsPerLine;
 
