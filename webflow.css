@@ -15,9 +15,6 @@
     text-align: left;
     font-weight: bold;
     margin-bottom: 20px;}
-    .fee-item {
-    	margin-bottom: 20px;
-    }
     .fee-item value {
       text-align: right;
       margin-right: 20px;
@@ -28,3 +25,31 @@
       right: 0;}
     .fee-item name {
       text-align: left;}
+
+.formform {
+    width: 450px;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    margin-left: 0px;
+    padding: 0px;}
+ #email-input{
+    width: 242px;
+    height: 38px;
+    padding: 8px;
+    border-radius: 4px;
+    float: left;
+    left: 0;
+    margin-left: 0px;
+    margin-right: 5px;}
+#submit-two {
+    width: 200px;
+    height: 38px;
+    background: #242526;
+    color: #ffffff;
+    margin-right: 0px;
+    right: 0;
+    border: 2px solid #242526;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    float: right;}
