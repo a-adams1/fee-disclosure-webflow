@@ -11,7 +11,11 @@ function submitButton() {
 var fileInput = document.getElementById('file');
 const file = fileInput.files[0];
   pdfFileName = file.name;
-  pdfData = base64data;
+  let reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = function() {
+      let base64data = reader.result.split(',')[1];
+      pdfData = base64data; }
   var formData = new FormData();
   formData.append("pdf_file", file);
   sendDataToAPI(formData); }
