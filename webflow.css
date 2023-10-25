@@ -1,0 +1,30 @@
+.calculating {
+    font-weight: bold;
+    position: relative;
+    text-align: left;
+    font-size: 20px;
+    margin-right: 20px;}
+  .plandetails, .feecomponents {
+    background-color: rgba(36, 37, 38, 0.05);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 4px;
+    position: relative;}
+    .inplan, .infee {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 20px;}
+    .fee-item {
+    	margin-bottom: 20px;
+    }
+    .fee-item value {
+      text-align: right;
+      margin-right: 20px;
+      position: absolute;
+      max-width: 200px;
+      padding: 10px;
+    	white-space: normal;
+      right: 0;}
+    .fee-item name {
+      text-align: left;}
