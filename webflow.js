@@ -27,12 +27,15 @@ function showFileName() {
         document.getElementById('result').innerHTML = '';
         var fileInput = document.getElementById('file');
         var fileNameDiv = document.getElementById('file-name');
+        var submitButton = document.getElementById('submit-Button');
         if (fileInput.files.length > 0) {
           var fileName = fileInput.files[0].name;
           var truncateName = truncateFilename(fileName);
           fileNameDiv.innerHTML = '<strong>Selected file:</strong> ' + truncateName;
+          submitButton.disabled = false;
         } else {
           fileNameDiv.innerHTML = 'No file selected';
+          submitButton.disabled = true;
         }
       }
       var dropArea = document.getElementById('drop-area');
