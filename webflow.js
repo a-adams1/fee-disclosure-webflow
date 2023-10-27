@@ -35,7 +35,6 @@ function sendDataToAPI(formData) {
             periodCount = (periodCount % 3) + 1;};
         let intervalID = setInterval(updateCalculatingText, 500);
         const uniqueId = Date.now().toString() + pdfFileName;
-        console.log(uniqueId);
         formData.append('unique_id', uniqueId);
         fetch('https://marketing.forusall.com/api/analyze-pdf', {
              method: 'POST',
