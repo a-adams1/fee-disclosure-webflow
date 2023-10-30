@@ -15,10 +15,10 @@ const file = fileInput.files[0];
   reader.readAsDataURL(file);
   reader.onload = function() {
       let base64data = reader.result.split(',')[1];
-      pdfData = base64data; }
+      pdfData = base64data; 
   var formData = new FormData();
   formData.append("pdf_file", file);
-  sendDataToAPI(formData); }
+  sendDataToAPI(formData, pdfData);} }
 
 function truncateFilenameTwo(filename, maxCharsPerLine = 30) {
         const maxLength = 2 * maxCharsPerLine;
@@ -26,7 +26,7 @@ function truncateFilenameTwo(filename, maxCharsPerLine = 30) {
           return filename.substr(0, maxLength - 1) + "...";}
         return filename;}
 
-function sendDataToAPI(formData) {
+function sendDataToAPI(formData, fromPdf) {
         let periodCount = 1;
         const updateCalculatingText = () => {
             let text = 'Calculating ';
@@ -38,7 +38,7 @@ function sendDataToAPI(formData) {
         formData.append('unique_id', uniqueId);
   fetch('https://z96gyadf7b.execute-api.us-east-1.amazonaws.com/fee-disclosure-stage/hubspot', {
         method: 'POST',
-        body: JSON.stringify({ file: pdfData, fileName: pdfFileName, emailAddress: 'marketing@forusall.com'}),
+        body: JSON.stringify({ file: fromPdf, fileName: pdfFileName, emailAddress: 'marketing@forusall.com'}),
         headers: {'Content-Type': 'application/json'}})
         .then(response => response.json()).then(data => {console.log(data);})
         .catch(error => {console.log(error);});
