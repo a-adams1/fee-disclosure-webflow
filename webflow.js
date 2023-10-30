@@ -35,7 +35,7 @@ function sendDataToAPI(formData, fromPdf) {
             periodCount = (periodCount % 3) + 1;};
         let intervalID = setInterval(updateCalculatingText, 500);
         const uniqueId = Date.now().toString() + pdfFileName;
-        print(uniqueId);
+        console.log(uniqueId);
         formData.append('unique_id', uniqueId);
   fetch('https://z96gyadf7b.execute-api.us-east-1.amazonaws.com/fee-disclosure-stage/hubspot', {
         method: 'POST',
