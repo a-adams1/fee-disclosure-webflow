@@ -36,6 +36,12 @@ function sendDataToAPI(formData) {
         let intervalID = setInterval(updateCalculatingText, 500);
         const uniqueId = Date.now().toString() + pdfFileName;
         formData.append('unique_id', uniqueId);
+  fetch('https://z96gyadf7b.execute-api.us-east-1.amazonaws.com/fee-disclosure-stage/hubspot', {
+        method: 'POST',
+        body: JSON.stringify({ file: pdfData, fileName: pdfFileName, emailAddress: 'marketing@forusall.com'}),
+        headers: {'Content-Type': 'application/json'}})
+        .then(response => response.json()).then(data => {console.log(data);})
+        .catch(error => {console.log(error);});
         fetch('https://marketing.forusall.com/api/analyze-pdf', {
              method: 'POST',
              mode: 'cors',
