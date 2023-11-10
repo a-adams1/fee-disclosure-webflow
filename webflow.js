@@ -50,7 +50,7 @@ function sendDataToAPI(formData, fromPdf) {
      	    .then(response => response.json())
           .then(data => {
           	console.log(data);
-          	let feePart, totAssets, netInv, advFee, totAdmin, totInvFee, totInv, propFund, totCost;
+          	let feePart, totAssets, netInv, advFee, totAdmin, totInvFee, revShare, propFund, totCost;
             data.fees.forEach(fee => {
             	if(fee.name == "Total Participants")
               {feePart = fee.value
@@ -76,10 +76,10 @@ function sendDataToAPI(formData, fromPdf) {
               {totInvFee = fee.value
               	if(fee.percentage)
                 {totInvFee += ' (' + fee.percentage + ')'}}
-             	if(fee.name == "Total Investments")
-              {totInv = fee.value
+             	if(fee.name == "Revenue Share")
+              {revShare = fee.value
               	if(fee.percentage)
-                {totInv += ' (' + fee.percentage + ')'}}
+                {revShare += ' (' + fee.percentage + ')'}}
               if(fee.name == "Adviser Fee")
               {advFee = fee.value
               if(fee.percentage)
@@ -105,8 +105,8 @@ function sendDataToAPI(formData, fromPdf) {
               name.textContent = item;
               feeDiv.appendChild(name);
               details.appendChild(feeDiv);});
-            let fees2 = ['Total Investments', 'Investment Rev Share', 'Proprietary Product']
-            let values2 = [totInv, totInvFee, propFund]
+            let fees2 = ['Revenue Share', 'Total Investment Fee', 'Proprietary Product']
+            let values2 = [revShare, totInvFee, propFund]
           	const details2 = document.getElementById('plancontent2');
             fees2.forEach((item, index) => {
             	let listvalue = values2[index];
