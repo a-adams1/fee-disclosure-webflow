@@ -52,7 +52,7 @@ function sendDataToAPI(formData, fromPdf) {
           	console.log(data);
           	let feePart, totAssets, netInv, advFee, totAdmin, totInvFee, revShare, propFund, totCost;
             data.fees.forEach(fee => {
-              if (fee.value === -1) {
+              if (fee.value < 0) {
                   fee.value = 'TBD';
               } else if (fee.percentage) {
                   fee.value += ' (' + fee.percentage + ')';
