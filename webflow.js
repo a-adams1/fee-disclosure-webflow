@@ -20,7 +20,7 @@ const file = fileInput.files[0];
   formData.append("pdf_file", file);
   sendDataToAPI(formData, pdfData);} }
 
-function truncateFilenameTwo(filename, maxCharsPerLine = 25) {
+function truncateFilenameTwo(filename, maxCharsPerLine = 21) {
         const maxLength = 2 * maxCharsPerLine;
         if (filename.length > maxLength) {
           return filename.substr(0, maxLength - 1) + "...";}
@@ -51,8 +51,14 @@ function sendDataToAPI(formData, fromPdf) {
           .then(data => {
           	console.log(data);
           	let feePart, totAssets, netInv, advFee, totAdmin, totInvFee, revShare, propFund, totCost;
+
+            function isNegative(value) {
+                const pattern = /-\d+(\.\d+)?/;
+                return pattern.test(value);
+            }
             data.fees.forEach(fee => {
-              if (fee.value < 0) {
+              console.log(fee.value);
+              if (isNegative(fee.value) {
                   fee.value = 'TBD';
               } else if (fee.percentage) {
                   fee.value += ' (' + fee.percentage + ')';
