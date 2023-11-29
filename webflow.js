@@ -154,6 +154,7 @@ function sendDataToAPI(formData, fromPdf) {
             document.getElementById('summaryid').style.display = 'block'; 
             document.getElementById('plandet').style.display = 'block'; 
             document.getElementById('feecomp').style.display = 'block'; 
+            document.getElementById('alterinfo').style.display = 'block';
             document.getElementById('second-description').style.display = 'block';
             document.getElementById('disclaimertwo-text').style.display = 'block';
             subbutton.disabled = false;}).catch(error => {
