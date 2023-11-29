@@ -52,42 +52,42 @@ function sendDataToAPI(formData, fromPdf) {
           	console.log(data);
           	let feePart, totAssets, netInv, advFee, totAdmin, totInvFee, revShare, propFund, totCost;
             data.fees.forEach(fee => {
-            	if(fee.name == "Total Participants")
-              {feePart = fee.value
-              	if(fee.percentage)
-                {feePart += ' (' + fee.percentage + ')'}}
-              if(fee.name == "Total Assets")
-              {totAssets = fee.value
-              	if(fee.percentage)
-                {totAssets += ' (' + fee.percentage + ')'}}
-              if(fee.name == "Prop Funds")
-              {propFund = fee.value
-              	if(fee.percentage)
-                {propFund += ' (' + fee.percentage + ')'}}
-              if(fee.name == "Net Investments")
-              {netInv = fee.value
-              if(fee.percentage)
-                {netInv += ' (' + fee.percentage + ')'}}
-              if(fee.name == "Total Admin")
-              {totAdmin = fee.value
-              	if(fee.percentage)
-                {totAdmin += ' (' + fee.percentage + ')'}}
-              if(fee.name == "Total Investment Fee")
-              {totInvFee = fee.value
-              	if(fee.percentage)
-                {totInvFee += ' (' + fee.percentage + ')'}}
-             	if(fee.name == "Revenue Share")
-              {revShare = fee.value
-              	if(fee.percentage)
-                {revShare += ' (' + fee.percentage + ')'}}
-              if(fee.name == "Adviser Fee")
-              {advFee = fee.value
-              if(fee.percentage)
-                {advFee += ' (' + fee.percentage + ')'}} 
-              if(fee.name == "Total Cost")
-              {totCost = fee.value
-              if(fee.percentage)
-                {totCost += ' (' + fee.percentage + ')'}}});
+              if (fee.value === -1) {
+                  fee.value = 'TBD';
+              } else if (fee.percentage) {
+                  fee.value += ' (' + fee.percentage + ')';
+              }
+          
+              switch (fee.name) {
+                  case "Total Participants":
+                      feePart = fee.value;
+                      break;
+                  case "Total Assets":
+                      totAssets = fee.value;
+                      break;
+                  case "Prop Funds":
+                      propFund = fee.value;
+                      break;
+                  case "Net Investments":
+                      netInv = fee.value;
+                      break;
+                  case "Total Admin":
+                      totAdmin = fee.value;
+                      break;
+                  case "Total Investment Fee":
+                      totInvFee = fee.value;
+                      break;
+                  case "Revenue Share":
+                      revShare = fee.value;
+                      break;
+                  case "Adviser Fee":
+                      advFee = fee.value;
+                      break;
+                  case "Total Cost":
+                      totCost = fee.value;
+                      break;
+              } });
+
             let fees = ['Plan Name', 'Provider', 'Plan Assets', 'Total Participants']
             let planName = truncateFilenameTwo(data.plan)
             let values = [planName, data.provider, totAssets, feePart]
