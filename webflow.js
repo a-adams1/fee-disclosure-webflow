@@ -58,7 +58,7 @@ function sendDataToAPI(formData, fromPdf) {
             }
             data.fees.forEach(fee => {
               console.log(fee.value);
-              if (isNegative(fee.value) {
+              if (isNegative(fee.value)) {
                   fee.value = 'TBD';
               } else if (fee.percentage) {
                   fee.value += ' (' + fee.percentage + ')';
