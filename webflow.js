@@ -20,7 +20,7 @@ const file = fileInput.files[0];
   formData.append("pdf_file", file);
   sendDataToAPI(formData, pdfData);} }
 
-function truncateFilenameTwo(filename, maxCharsPerLine = 30) {
+function truncateFilenameTwo(filename, maxCharsPerLine = 20) {
         const maxLength = 2 * maxCharsPerLine;
         if (filename.length > maxLength) {
           return filename.substr(0, maxLength - 1) + "...";}
