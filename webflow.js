@@ -96,23 +96,61 @@ function sendDataToAPI(formData, fromPdf) {
                       break;
               } });
 
-            let fees = ['Plan Name', 'Provider', 'Plan Assets', 'Total Participants']
-            let planName = truncateFilenameTwo(data.plan)
-            let values = [planName, data.provider, totAssets, feePart]
-          	const details = document.getElementById('plancontent');
+            let fees = ['Plan Name', 'Provider', 'Plan Assets', 'Total Participants'];
+            let planName = truncateFilenameTwo(data.plan);
+            let values = [planName, data.provider, totAssets, feePart];
+            const details = document.getElementById('plancontent');
+            
             fees.forEach((item, index) => {
-            	let listvalue = values[index];
-              const feeDiv = document.createElement('div');
-              feeDiv.className = 'fee-item';
-              if (index !== fees.length - 1) {
-                feeDiv.style.marginBottom = '20px';}
-              const value = document.createElement('p');
-              value.textContent = listvalue;
-              feeDiv.appendChild(value);
-              const name = document.createElement('name');
-              name.textContent = item;
-              feeDiv.appendChild(name);
-              details.appendChild(feeDiv);});
+                let listvalue = values[index];
+                const feeDiv = document.createElement('div');
+                feeDiv.className = 'fee-item';
+                if (index !== fees.length - 1) {
+                    feeDiv.style.marginBottom = '20px';
+                }
+            
+                if (item === 'Plan Assets' || item === 'Total Participants') {
+                    const span = document.createElement('span');
+                    span.id = `display-${item}`;
+                    span.textContent = listvalue;
+                    feeDiv.appendChild(span);
+            
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.id = `input-${item}`;
+                    input.value = listvalue;
+                    input.style.display = 'none';
+                    feeDiv.appendChild(input);
+            
+                    const pencilIcon = document.createElement('i');
+                    pencilIcon.id = `edit-${item}`;
+                    pencilIcon.className = 'fas fa-pencil-alt';
+                    pencilIcon.style.cursor = 'pointer';
+                    feeDiv.appendChild(pencilIcon);
+            
+                    pencilIcon.addEventListener('click', function() {
+                        span.style.display = 'none';
+                        input.style.display = 'inline';
+                        input.focus();
+                    });
+            
+                    input.addEventListener('blur', function() {
+                        span.textContent = input.value;
+                        span.style.display = 'inline';
+                        input.style.display = 'none';
+                    });
+                } else {
+                    // Non-editable field
+                    const value = document.createElement('p');
+                    value.textContent = listvalue;
+                    feeDiv.appendChild(value);
+                }
+            
+                const name = document.createElement('name');
+                name.textContent = item;
+                feeDiv.appendChild(name);
+                details.appendChild(feeDiv);
+            });
             let fees2 = ['Revenue Share', 'Total Investment Fee', 'Proprietary Product']
             let values2 = [revShare, totInvFee, propFund]
           	const details2 = document.getElementById('plancontent2');
