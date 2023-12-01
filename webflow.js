@@ -198,7 +198,7 @@ function sendDataToAPI(formData, fromPdf) {
             document.getElementById('infoBox').style.display = 'block';
             document.getElementById('summaryid').style.display = 'block'; 
             document.getElementById('plandet').style.display = 'block'; 
-            document.getElementById('buttonContainer').style.display = 'block'; 
+            document.getElementById('buttonContainer').style.display = 'flex'; 
             document.getElementById('alterinfo').style.display = 'block';
             document.getElementById('second-description').style.display = 'block';
             document.getElementById('disclaimertwo-text').style.display = 'block';
