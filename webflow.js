@@ -5,6 +5,7 @@ document.getElementById('first-page').style.display = 'none';
 hContainer = document.querySelector('.container h1');
 hContainer.textContent = "Fee disclosure analysis";
 hContainer.style.textAlign = "left";
+hContainer.style.paddingLeft = "10px";
 if (document.getElementById('file-name').innerHTML.trim() !== '') {
   this.disabled = true;
   submitButton();}});
