@@ -115,18 +115,22 @@ function sendDataToAPI(formData, fromPdf) {
                     span.textContent = listvalue;
                     feeDiv.appendChild(span);
             
+                    const inputWrapper = document.createElement('div');
+                    inputWrapper.className = 'input-icon-container';
+            
                     const input = document.createElement('input');
                     input.type = 'text';
                     input.id = `input-${item}`;
+                    input.className = 'editable-input';
                     input.value = listvalue;
                     input.style.display = 'none';
-                    feeDiv.appendChild(input);
+                    inputWrapper.appendChild(input);
             
                     const pencilIcon = document.createElement('i');
-                    pencilIcon.id = `edit-${item}`;
-                    pencilIcon.className = 'fas fa-pencil-alt';
-                    pencilIcon.style.cursor = 'pointer';
-                    feeDiv.appendChild(pencilIcon);
+                    pencilIcon.className = 'fas fa-pencil-alt edit-icon';
+                    inputWrapper.appendChild(pencilIcon);
+            
+                    feeDiv.appendChild(inputWrapper);
             
                     pencilIcon.addEventListener('click', function() {
                         span.style.display = 'none';
@@ -140,7 +144,7 @@ function sendDataToAPI(formData, fromPdf) {
                         input.style.display = 'none';
                     });
                 } else {
-                    // Non-editable field
+
                     const value = document.createElement('p');
                     value.textContent = listvalue;
                     feeDiv.appendChild(value);
@@ -151,6 +155,7 @@ function sendDataToAPI(formData, fromPdf) {
                 feeDiv.appendChild(name);
                 details.appendChild(feeDiv);
             });
+
             let fees2 = ['Revenue Share', 'Total Investment Fee', 'Proprietary Product']
             let values2 = [revShare, totInvFee, propFund]
           	const details2 = document.getElementById('plancontent2');
