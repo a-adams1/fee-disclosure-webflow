@@ -1,4 +1,4 @@
-let hContainer, pdfFileName, pdfData;
+let hContainer, pdfFileName, pdfData, dataArray;
 const subbutton = document.querySelector('#submit-Button');
 subbutton.addEventListener('click', function () {
 document.getElementById('first-page').style.display = 'none';
@@ -52,6 +52,7 @@ function sendDataToAPI(formData, fromPdf) {
      	    .then(response => response.json())
           .then(data => {
           	console.log(data);
+            dataArray = data;
           	let feePart, totAssets, netInv, advFee, totAdmin, totInvFee, revShare, propFund, totCost;
 
             function isNegative(value) {
