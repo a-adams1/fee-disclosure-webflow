@@ -197,10 +197,11 @@ function sendDataToAPI(formData, fromPdf) {
             document.getElementById('calculatingText').innerHTML = '';
             document.getElementById('infoBox').style.display = 'block';
             document.getElementById('summaryid').style.display = 'block'; 
-            document.getElementById('plandet').style.display = 'block'; 
+            document.getElementById('plandet').style.display = 'block';
             document.getElementById('alterinfo').style.display = 'block';
             document.getElementById('second-description').style.display = 'block';
             document.getElementById('disclaimertwo-text').style.display = 'block';
+            document.getElementById('buttonContainer').style.disply = 'flex';
             subbutton.disabled = false;}).catch(error => {
           clearInterval(intervalID);
           document.getElementById('calculatingText').innerHTML = '';
