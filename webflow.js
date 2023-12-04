@@ -115,15 +115,23 @@ function sendDataToAPI(formData, fromPdf) {
                     span.id = `display-${item}`;
                     span.textContent = listvalue;
                     feeDiv.appendChild(span);
-            
+                  
+                    let itemwithoutDollar = listvalue.replace('$', '');
                     const inputWrapper = document.createElement('div');
                     inputWrapper.className = 'input-icon-container';
-            
+
+
+                    if (item === 'Plan Assets') {
+                        const dollarSign = document.createElement('span');
+                        dollarSign.textContent = '$';
+                        dollarSign.className = 'dollar-sign';
+                        inputWrapper.appendChild(dollarSign);
+                    }
                     const input = document.createElement('input');
                     input.type = 'text';
                     input.id = `input-${item}`;
                     input.className = 'editable-input';
-                    input.value = listvalue;
+                    input.value = itemwithoutDollar;
                     input.style.display = 'none';
                     inputWrapper.appendChild(input);
             
@@ -151,7 +159,7 @@ function sendDataToAPI(formData, fromPdf) {
                     value.textContent = listvalue;
                     feeDiv.appendChild(value);
                 }
-            
+                
                 const name = document.createElement('name');
                 name.textContent = item;
                 feeDiv.appendChild(name);
