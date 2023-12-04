@@ -121,12 +121,7 @@ function sendDataToAPI(formData, fromPdf) {
                     inputWrapper.className = 'input-icon-container';
 
 
-                    if (item === 'Plan Assets') {
-                        const dollarSign = document.createElement('span');
-                        dollarSign.textContent = '$';
-                        dollarSign.className = 'dollar-sign';
-                        inputWrapper.appendChild(dollarSign);
-                    }
+                  
                     const input = document.createElement('input');
                     input.type = 'text';
                     input.id = `input-${item}`;
