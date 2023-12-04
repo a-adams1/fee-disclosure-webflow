@@ -208,9 +208,13 @@ function sendDataToAPI(formData, fromPdf) {
             container.style.minWidth = '1000px';
             subbutton.disabled = false;}).catch(error => {
           clearInterval(intervalID);
+          var columncontainer = document.querySelector('.container');
+          columncontainer.style.display = 'none';
           document.getElementById('calculatingText').innerHTML = '';
           document.getElementById('second-description').innerHTML = 'Unfortunately, there might have been an issue with the information you provided. But don’t worry! Our Fee Specialist team will review the information. Please enter your email below and we will send you the results once the review is complete.';
           document.getElementById('second-description').style.display = 'block';
+          document.getElementById('second-description').style.textAlign = 'center';
+          hContainer.style.textAlign = "center";
           document.getElementById('customForm').style.display = 'block';});}
 
 function truncateFilename(filename, maxCharsPerLine = 40) {
