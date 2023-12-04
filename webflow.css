@@ -35,7 +35,8 @@
     display: flex;
     margin-top: 20px;
     margin-bottom: 70px;
-    margin-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0px;}
  #email-input{
     width: 242px;
