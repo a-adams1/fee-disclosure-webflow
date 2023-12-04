@@ -204,6 +204,8 @@ function sendDataToAPI(formData, fromPdf) {
             document.getElementById('second-description').style.display = 'block';
             document.getElementById('disclaimertwo-text').style.display = 'block';
             document.getElementById('buttonContainer').style.display = 'flex';
+            var container = document.querySelector('.container');
+            container.style.minWidth = '1000px';
             subbutton.disabled = false;}).catch(error => {
           clearInterval(intervalID);
           document.getElementById('calculatingText').innerHTML = '';
