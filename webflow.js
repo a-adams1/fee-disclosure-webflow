@@ -196,7 +196,8 @@ function sendDataToAPI(formData, fromPdf) {
                 name.style.fontWeight = 'bold';
                 name.style.fontSize = '20px';
                 value.style.fontWeight = 'bold';
-                value.style.fontSize = '20px';}
+                value.style.fontSize = '20px';
+                value.style.whiteSpace = 'nowrap';}
               details3.appendChild(feeDiv);});
             clearInterval(intervalID);
             document.getElementById('calculatingText').innerHTML = '';
