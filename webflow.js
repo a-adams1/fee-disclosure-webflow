@@ -133,6 +133,7 @@ function sendDataToAPI(formData, fromPdf) {
                     feeDiv.appendChild(inputWrapper);
             
                     pencilIcon.addEventListener('click', function() {
+                        document.getElementById("analysisButton").disabled = false;
                         span.style.display = 'none';
                         input.style.display = 'inline';
                         input.focus();
