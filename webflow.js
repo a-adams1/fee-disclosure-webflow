@@ -208,7 +208,7 @@ function sendDataToAPI(formData, fromPdf) {
             container.style.minWidth = '1000px';
             subbutton.disabled = false;}).catch(error => {
           clearInterval(intervalID);
-          var columncontainer = document.querySelector('.container');
+          var columncontainer = document.querySelector('.columns-container');
           columncontainer.style.display = 'none';
           document.getElementById('calculatingText').innerHTML = '';
           document.getElementById('second-description').innerHTML = 'Unfortunately, there might have been an issue with the information you provided. But don’t worry! Our Fee Specialist team will review the information. Please enter your email below and we will send you the results once the review is complete.';
