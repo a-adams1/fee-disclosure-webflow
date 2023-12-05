@@ -20,7 +20,7 @@ const file = fileInput.files[0];
       pdfData = base64data; 
   var formData = new FormData();
   formData.append("pdf_file", file);
-  sendDataToAPI(formData, pdfData);} }
+  sendDataToAPI(formData, pdfData, 'analyze-pdf');} }
 
 function truncateFilenameTwo(filename, maxCharsPerLine = 21) {
         const maxLength = 2 * maxCharsPerLine;
@@ -28,7 +28,7 @@ function truncateFilenameTwo(filename, maxCharsPerLine = 21) {
           return filename.substr(0, maxLength - 1) + "...";}
         return filename;}
 
-function sendDataToAPI(formData, fromPdf) {
+function sendDataToAPI(formData, fromPdf, endpoint) {
         let periodCount = 1;
         const updateCalculatingText = () => {
             let text = 'Calculating ';
@@ -45,7 +45,7 @@ function sendDataToAPI(formData, fromPdf) {
         headers: {'Content-Type': 'application/json'}})
         .then(response => response.json()).then(data => {console.log(data);})
         .catch(error => {console.log(error);});
-        fetch('https://marketing.forusall.com/api/analyze-pdf', {
+        fetch('https://marketing.forusall.com/api/' + endpoint, {
              method: 'POST',
              mode: 'cors',
              body: formData})
