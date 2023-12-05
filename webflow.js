@@ -210,7 +210,7 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
             document.getElementById('disclaimerthree-text').style.display = 'block';
             document.getElementById('buttonContainer').style.display = 'flex';
             var container = document.querySelector('.container');
-            container.style.minWidth = '1000px';
+            container.style.minWidth = '800px';
             subbutton.disabled = false;}).catch(error => {
           clearInterval(intervalID);
           var columncontainer = document.querySelector('.columns-container');
