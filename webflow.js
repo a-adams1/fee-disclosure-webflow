@@ -53,9 +53,10 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
           .then(data => {
             console.log('data from the api call');
           	console.log(data);
-            dataArray = data;
+            dataArray = JSON.parse(JSON.stringify(data));
             console.log('this is the unchanged array');
             console.log(dataArray);
+          
           	let feePart, totAssets, netInv, advFee, totAdmin, totInvFee, revShare, propFund, totCost;
 
             function isNegative(value) {
