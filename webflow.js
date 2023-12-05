@@ -51,6 +51,7 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
              body: formData})
      	    .then(response => response.json())
           .then(data => {
+            console.log('data from the api call');
           	console.log(data);
             dataArray = data;
           	let feePart, totAssets, netInv, advFee, totAdmin, totInvFee, revShare, propFund, totCost;
