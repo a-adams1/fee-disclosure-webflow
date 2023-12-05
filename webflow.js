@@ -220,6 +220,10 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
           document.getElementById('second-description').style.display = 'block';
           document.getElementById('second-description').style.textAlign = 'center';
           hContainer.style.textAlign = "center";
+          container.style.minWidth = '500px';
+          document.getElementById('buttonContainer').style.display = 'none';
+          document.getElementById('disclaimertwo-text').style.display = 'none';
+          document.getElementById('disclaimerthree-text').style.display = 'none';
           document.getElementById('customForm').style.display = 'block';});}
 
 function truncateFilename(filename, maxCharsPerLine = 40) {
