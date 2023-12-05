@@ -91,7 +91,8 @@ body {
     line-height: normal;
     font-style: italic;
     font-size: 8px;
-    text-align: left;}
+    text-align: left;
+    padding: 0px 10px 0px 10px;}
 .second-des {
     text-align: left;
     font-size: 14px;
