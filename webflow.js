@@ -177,7 +177,7 @@ function sendDataToAPI(formData, fromPdf) {
               name.textContent = item;
               feeDiv.appendChild(name);
               details2.appendChild(feeDiv);});
-            let fees3 = ['RK', 'Advisor', 'Net Investments', 'Total']
+            let fees3 = ['Total Admin (RK + TPA)', 'Advisor', 'Net Investments', 'Total']
             let values3 = [totAdmin, advFee,netInv, totCost]
           	const details3 = document.getElementById('plancontent3');
             fees3.forEach((item, index) => {
@@ -207,6 +207,7 @@ function sendDataToAPI(formData, fromPdf) {
             document.getElementById('alterinfo').style.display = 'block';
             document.getElementById('second-description').style.display = 'block';
             document.getElementById('disclaimertwo-text').style.display = 'block';
+            document.getElementById('disclaimerthree-text').style.display = 'block';
             document.getElementById('buttonContainer').style.display = 'flex';
             var container = document.querySelector('.container');
             container.style.minWidth = '1000px';
