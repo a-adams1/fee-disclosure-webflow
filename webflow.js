@@ -223,6 +223,7 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
           document.getElementById('second-description').style.display = 'block';
           document.getElementById('second-description').style.textAlign = 'center';
           hContainer.style.textAlign = "center";
+          var container = document.querySelector('.container');
           container.style.minWidth = '500px';
           document.getElementById('buttonContainer').style.display = 'none';
           document.getElementById('disclaimertwo-text').style.display = 'none';
