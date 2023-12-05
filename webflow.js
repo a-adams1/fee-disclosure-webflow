@@ -114,45 +114,97 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                     feeDiv.style.marginBottom = '20px';
                 }
             
-                if (item === 'Plan Assets' || item === 'Total Participants') {
-                    const span = document.createElement('span');
-                    span.id = `display-${item}`;
-                    span.textContent = listvalue;
-                    feeDiv.appendChild(span);
+                // if (item === 'Plan Assets' || item === 'Total Participants') {
+                //     const span = document.createElement('span');
+                //     span.id = `display-${item}`;
+                //     span.textContent = listvalue;
+                //     feeDiv.appendChild(span);
                   
-                    let itemwithoutDollar = listvalue.replace('$', '');
-                    const inputWrapper = document.createElement('div');
-                    inputWrapper.className = 'input-icon-container';
+                //     let itemwithoutDollar = listvalue.replace('$', '');
+                //     const inputWrapper = document.createElement('div');
+                //     inputWrapper.className = 'input-icon-container';
 
 
                   
-                    const input = document.createElement('input');
-                    input.type = 'text';
-                    input.id = `input-${item}`;
-                    input.className = 'editable-input';
-                    input.value = itemwithoutDollar;
+                //     const input = document.createElement('input');
+                //     input.type = 'text';
+                //     input.id = `input-${item}`;
+                //     input.className = 'editable-input';
+                //     input.value = itemwithoutDollar;
+                //     input.style.display = 'none';
+                //     inputWrapper.appendChild(input);
+            
+                //     const pencilIcon = document.createElement('i');
+                //     pencilIcon.className = 'fas fa-pencil-alt edit-icon';
+                //     inputWrapper.appendChild(pencilIcon);
+            
+                //     feeDiv.appendChild(inputWrapper);
+            
+                //     pencilIcon.addEventListener('click', function() {
+                //         document.getElementById("analysisButton").disabled = false;
+                //         span.style.display = 'none';
+                //         input.style.display = 'inline';
+                //         input.focus();
+                //     });
+            
+                //     input.addEventListener('blur', function() {
+                //         span.textContent = input.value;
+                //         span.style.display = 'inline';
+                //         input.style.display = 'none';
+                //     });
+                // } 
+              
+              if (item === 'Plan Assets' || item === 'Total Participants') {
+                const span = document.createElement('span');
+                span.id = `display-${item}`;
+                span.textContent = listvalue;
+                feeDiv.appendChild(span);
+                
+                let itemwithoutDollar = listvalue.replace('$', ''); 
+                const inputGroup = document.createElement('div');
+                inputGroup.className = 'input-group mb-3';
+        
+                const inputGroupPrepend = document.createElement('div');
+                inputGroupPrepend.className = 'input-group-prepend';
+                const spanSign = document.createElement('span');
+                spanSign.className = 'input-group-text';
+                spanSign.textContent = item === 'Plan Assets' ? '$' : '#'; // Dollar for Plan Assets, Pound for Total Participants
+                inputGroupPrepend.appendChild(spanSign);
+        
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.id = `input-${item}`;
+                input.className = 'form-control';
+                input.value = itemwithoutDollar;
+                input.style.display = 'none';
+                inputGroup.appendChild(inputGroupPrepend);
+                inputGroup.appendChild(input);
+        
+                const inputGroupAppend = document.createElement('div');
+                inputGroupAppend.className = 'input-group-append';
+                const pencilIconSpan = document.createElement('span');
+                pencilIconSpan.className = 'input-group-text';
+                const pencilIcon = document.createElement('i');
+                pencilIcon.className = 'fas fa-pencil-alt';
+                pencilIconSpan.appendChild(pencilIcon);
+                inputGroupAppend.appendChild(pencilIconSpan);
+        
+                inputGroup.appendChild(inputGroupAppend);
+                feeDiv.appendChild(inputGroup);
+        
+                pencilIcon.addEventListener('click', function() {
+                    document.getElementById("analysisButton").disabled = false;
+                    span.style.display = 'none';
+                    input.style.display = 'inline';
+                    input.focus();
+                });
+        
+                input.addEventListener('blur', function() {
+                    span.textContent = input.value;
+                    span.style.display = 'inline';
                     input.style.display = 'none';
-                    inputWrapper.appendChild(input);
-            
-                    const pencilIcon = document.createElement('i');
-                    pencilIcon.className = 'fas fa-pencil-alt edit-icon';
-                    inputWrapper.appendChild(pencilIcon);
-            
-                    feeDiv.appendChild(inputWrapper);
-            
-                    pencilIcon.addEventListener('click', function() {
-                        document.getElementById("analysisButton").disabled = false;
-                        span.style.display = 'none';
-                        input.style.display = 'inline';
-                        input.focus();
-                    });
-            
-                    input.addEventListener('blur', function() {
-                        span.textContent = input.value;
-                        span.style.display = 'inline';
-                        input.style.display = 'none';
-                    });
-                } else {
+                });
+            } else {
 
                     const value = document.createElement('p');
                     value.textContent = listvalue;
