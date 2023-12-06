@@ -170,14 +170,14 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                     // Create the input group prepend div
                     const inputGroupPrepend = document.createElement('div');
                     inputGroupPrepend.className = 'input-group-prepend';
+
                     
                     // Create the span for the dollar sign
-                    const dollarSpan = document.createElement('span');
-                    dollarSpan.className = 'input-group-text';
-                    dollarSpan.textContent = '$';
+                    const symbolSpan = document.createElement('span');
+                    symbolSpan.className = 'input-group-text';
+                    symbolSpan.textContent = item === 'Plan Assets' ? '$' : '#'; // 
                     
-                    // Append the dollar sign span to the prepend div
-                    inputGroupPrepend.appendChild(dollarSpan);
+                    inputGroupPrepend.appendChild(symbolSpan);
                     
                     // Create the input element
                     const inputElement = document.createElement('input');
