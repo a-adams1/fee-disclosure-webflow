@@ -109,10 +109,19 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
             fees.forEach((item, index) => {
                 let listvalue = values[index];
                 const feeDiv = document.createElement('div');
+                if (item === 'Total Participants') {
+                    feeDiv.className = 'fee-item-participants';
+                } else if (item === 'Plan Assets') {
+                    feeDiv.className = 'fee-item-assets';
+                } else {
+                    feeDiv.className = 'fee-item';
+                }
                 feeDiv.className = 'fee-item';
                 if (index !== fees.length - 1) {
                     feeDiv.style.marginBottom = '20px';
                 }
+
+                
             
                 // if (item === 'Plan Assets' || item === 'Total Participants') {
                 //     const span = document.createElement('span');
