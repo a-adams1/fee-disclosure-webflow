@@ -155,12 +155,6 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                 // } 
               
               if (item === 'Plan Assets' || item === 'Total Participants') {
-                const span = document.createElement('span');
-                span.id = `display-${item}`;
-                span.textContent = listvalue;
-                feeDiv.appendChild(span);
-                
-                let itemwithoutDollar = listvalue.replace('$', ''); 
                 const inputGroup = document.createElement('div');
                 inputGroup.className = 'input-group mb-3';
         
@@ -168,16 +162,22 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                 inputGroupPrepend.className = 'input-group-prepend';
                 const spanSign = document.createElement('span');
                 spanSign.className = 'input-group-text';
-                spanSign.textContent = item === 'Plan Assets' ? '$' : '#'; // Dollar for Plan Assets, Pound for Total Participants
+                spanSign.textContent = item === 'Plan Assets' ? '$' : '£';
                 inputGroupPrepend.appendChild(spanSign);
+        
+                const span = document.createElement('span');
+                span.id = `display-${item}`;
+                span.className = 'form-control';
+                span.textContent = listvalue;
+                inputGroup.appendChild(inputGroupPrepend);
+                inputGroup.appendChild(span);
         
                 const input = document.createElement('input');
                 input.type = 'number';
                 input.id = `input-${item}`;
                 input.className = 'form-control';
-                input.value = itemwithoutDollar;
+                input.value = listvalue.replace(/\$|£/, '');
                 input.style.display = 'none';
-                inputGroup.appendChild(inputGroupPrepend);
                 inputGroup.appendChild(input);
         
                 const inputGroupAppend = document.createElement('div');
@@ -193,7 +193,6 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                 feeDiv.appendChild(inputGroup);
         
                 pencilIcon.addEventListener('click', function() {
-                    document.getElementById("analysisButton").disabled = false;
                     span.style.display = 'none';
                     input.style.display = 'inline';
                     input.focus();
