@@ -185,7 +185,13 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                     inputElement.className = 'form-control';
                     inputElement.setAttribute('aria-label', 'Amount (to the nearest dollar)');
                     inputElement.value = initialValue; // Set the initial value
-                    
+
+
+
+                    inputElement.addEventListener('input', function() {
+                        document.getElementById('analysisButton').disabled = false; // Enable the button
+                    });
+                                    
                     // Create the input group append div
                     const inputGroupAppend = document.createElement('div');
                     inputGroupAppend.className = 'input-group-append';
