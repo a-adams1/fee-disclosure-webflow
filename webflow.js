@@ -163,7 +163,7 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
               if (item === 'Plan Assets' || item === 'Total Participants') {
                    // Assuming this is the value you want to set in the input
                     let initialValue = listvalue.replace('$', '');
-                    
+                    console.log(initialValue);
                     const inputGroupDiv = document.createElement('div');
                     inputGroupDiv.className = 'input-group mb-3';
                     
