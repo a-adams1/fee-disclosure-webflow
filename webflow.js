@@ -158,9 +158,8 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                    // Assuming this is the value you want to set in the input
                     let initialValue = listvalue.replace('$', '');
                     
-                    // Create the input group div
-                    const feeDiv = document.createElement('div');
-                    feeDiv.className = 'input-group mb-3';
+                    const inputGroupDiv = document.createElement('div');
+                    inputGroupDiv.className = 'input-group mb-3';
                     
                     // Create the input group prepend div
                     const inputGroupPrepend = document.createElement('div');
@@ -200,9 +199,11 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                     inputGroupAppend.appendChild(pencilIconSpan);
                     
                     // Append the prepend and append divs and the input to the input group div
-                    feeDiv.appendChild(inputGroupPrepend);
-                    feeDiv.appendChild(inputElement);
-                    feeDiv.appendChild(inputGroupAppend);
+                    inputGroupDiv.appendChild(inputGroupPrepend);
+                    inputGroupDiv.appendChild(inputElement);
+                    inputGroupDiv.appendChild(inputGroupAppend);
+
+                    feeDiv.appendChild(inputGroupDiv);
 
             } else {
 
