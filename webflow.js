@@ -165,7 +165,7 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                    // Assuming this is the value you want to set in the input
                     let stringValue = listvalue.replace('$', '');
                     let initialValue = parseFloat(stringValue.replace(/,/g, ''));
-
+                    storedValues[item] = initialValue;
                     console.log(initialValue);
                     const inputGroupDiv = document.createElement('div');
                     inputGroupDiv.className = 'input-group mb-3';
