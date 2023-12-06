@@ -28,8 +28,22 @@ function truncateFilenameTwo(filename, maxCharsPerLine = 21) {
         if (filename.length > maxLength) {
           return filename.substr(0, maxLength - 1) + "...";}
         return filename;}
+function resetAnalysis() {
+    storedValues = {}; // Reset stored values
+    dataArray = []; // Reinitialize dataArray or any other similar variables
+
+    // Clear dynamic HTML content
+    const details = document.getElementById('plancontent');
+    const details2 = document.getElementById('plancontent2');
+    const details3 = document.getElementById('plancontent3');
+
+    details.innerHTML = ''; // Clear existing content
+    details2.innerHTML = ''; // Clear existing content
+    details3.innerHTML = ''; // Clear existing content
+}
 
 function sendDataToAPI(formData, fromPdf, endpoint) {
+        resetAnalysis();
         let periodCount = 1;
         const updateCalculatingText = () => {
             let text = 'Calculating ';
