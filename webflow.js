@@ -185,8 +185,7 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                     inputElement.className = 'form-control';
                     inputElement.setAttribute('aria-label', 'Amount (to the nearest dollar)');
                     inputElement.value = initialValue; // Set the initial value
-
-
+                    inputElement.id = `input-${item.replace(' ', '')}`;
 
                     inputElement.addEventListener('input', function() {
                         document.getElementById('analysisButton').disabled = false; // Enable the button
