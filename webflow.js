@@ -1,4 +1,5 @@
 let hContainer, pdfFileName, pdfData, dataArray;
+let storedValues = {};
 const subbutton = document.querySelector('#submit-Button');
 subbutton.addEventListener('click', function () {
 document.getElementById('first-page').style.display = 'none';
@@ -190,6 +191,8 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                     inputElement.id = `input-${item.replace(' ', '')}`;
 
                     inputElement.addEventListener('input', function() {
+                        storedValues[item] = this.value;
+                        console.log(storedValues);
                         document.getElementById('analysisButton').disabled = false; // Enable the button
                     });
                                     
