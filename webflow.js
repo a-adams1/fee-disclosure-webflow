@@ -155,54 +155,55 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                 // } 
               
               if (item === 'Plan Assets' || item === 'Total Participants') {
-                const inputGroup = document.createElement('div');
-                inputGroup.className = 'input-group mb-3';
-        
-                const inputGroupPrepend = document.createElement('div');
-                inputGroupPrepend.className = 'input-group-prepend';
-                const spanSign = document.createElement('span');
-                spanSign.className = 'input-group-text';
-                spanSign.textContent = item === 'Plan Assets' ? '$' : '£';
-                inputGroupPrepend.appendChild(spanSign);
-        
-                const span = document.createElement('span');
-                span.id = `display-${item}`;
-                span.className = 'form-control';
-                span.textContent = listvalue;
-                inputGroup.appendChild(inputGroupPrepend);
-                inputGroup.appendChild(span);
-        
-                const input = document.createElement('input');
-                input.type = 'number';
-                input.id = `input-${item}`;
-                input.className = 'form-control';
-                input.value = listvalue.replace(/\$|£/, '');
-                input.style.display = 'none';
-                inputGroup.appendChild(input);
-        
-                const inputGroupAppend = document.createElement('div');
-                inputGroupAppend.className = 'input-group-append';
-                const pencilIconSpan = document.createElement('span');
-                pencilIconSpan.className = 'input-group-text';
-                const pencilIcon = document.createElement('i');
-                pencilIcon.className = 'fas fa-pencil-alt';
-                pencilIconSpan.appendChild(pencilIcon);
-                inputGroupAppend.appendChild(pencilIconSpan);
-        
-                inputGroup.appendChild(inputGroupAppend);
-                feeDiv.appendChild(inputGroup);
-        
-                pencilIcon.addEventListener('click', function() {
-                    span.style.display = 'none';
-                    input.style.display = 'inline';
-                    input.focus();
-                });
-        
-                input.addEventListener('blur', function() {
-                    span.textContent = input.value;
-                    span.style.display = 'inline';
-                    input.style.display = 'none';
-                });
+                   // Assuming this is the value you want to set in the input
+                    let initialValue = listvalue.replace('$', '');
+                    
+                    // Create the input group div
+                    const feeDiv = document.createElement('div');
+                    feeDiv.className = 'input-group mb-3';
+                    
+                    // Create the input group prepend div
+                    const inputGroupPrepend = document.createElement('div');
+                    inputGroupPrepend.className = 'input-group-prepend';
+                    
+                    // Create the span for the dollar sign
+                    const dollarSpan = document.createElement('span');
+                    dollarSpan.className = 'input-group-text';
+                    dollarSpan.textContent = '$';
+                    
+                    // Append the dollar sign span to the prepend div
+                    inputGroupPrepend.appendChild(dollarSpan);
+                    
+                    // Create the input element
+                    const inputElement = document.createElement('input');
+                    inputElement.type = 'number';
+                    inputElement.className = 'form-control';
+                    inputElement.setAttribute('aria-label', 'Amount (to the nearest dollar)');
+                    inputElement.value = initialValue; // Set the initial value
+                    
+                    // Create the input group append div
+                    const inputGroupAppend = document.createElement('div');
+                    inputGroupAppend.className = 'input-group-append';
+                    
+                    // Create the span for the pencil icon
+                    const pencilIconSpan = document.createElement('span');
+                    pencilIconSpan.className = 'input-group-text';
+                    
+                    // Create the pencil icon
+                    const pencilIcon = document.createElement('i');
+                    pencilIcon.className = 'fas fa-pencil-alt';
+                    
+                    // Append the pencil icon to the span
+                    pencilIconSpan.appendChild(pencilIcon);
+                    
+                    // Append the span to the append div
+                    inputGroupAppend.appendChild(pencilIconSpan);
+                    
+                    // Append the prepend and append divs and the input to the input group div
+                    feeDiv.appendChild(inputGroupPrepend);
+                    feeDiv.appendChild(inputElement);
+                    feeDiv.appendChild(inputGroupAppend);
+
             } else {
 
                     const value = document.createElement('p');
