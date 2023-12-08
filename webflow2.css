@@ -83,17 +83,62 @@ body {
     padding-left: 10px;
     color: #333;
     margin-bottom: 20px;}
-#email-input{
+
+.calculating {
+    font-weight: bold;
+    position: relative;
+    text-align: left;
+    font-size: 20px;
+    margin-right: 20px;}
+  .plandetails{
+    background-color: rgba(36, 37, 38, 0.05);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 4px;
+    position: relative;}
+    .inplan {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 20px;}
+    .infee {
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 20px;}
+      .fee-item p {
+      text-align: right;
+      margin-right: 20px;
+      position: absolute;
+      max-width: 200px;
+    	white-space: normal;
+      right: 0;}
+    .fee-item name {
+      text-align: left;}
+
+.formform {
+    width: 450px;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;}
+ #email-input{
     width: 242px;
     height: 38px;
     padding: 8px;
     border-radius: 4px;
-    float: left;}
+    float: left;
+    left: 0;
+    margin-left: 0px;
+    margin-right: 5px;}
 #submit-two {
     width: 200px;
     height: 38px;
     background: #242526;
     color: #ffffff;
+    margin-right: 0px;
     right: 0;
     border: 2px solid #242526;
     margin-bottom: 20px;
