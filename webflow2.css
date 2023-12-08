@@ -22,11 +22,6 @@ body {
     font-size: 18px;
     margin-bottom: 20px;
     color: #333;}
-  .description-two {
-    text-align: center;
-    font-size: 16px;
-    padding: 20px;
-    color: #333;}
   .file-input {
     text-align: center;
     padding: 20px;
@@ -35,20 +30,11 @@ body {
   .file-input:hover {
     cursor: pointer;
     background: #f9f9f9;}
-  .submit-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background: #242526;
-    color: #ffffff;
-    border: 2px solid #242526;
-    margin-bottom: 20px;
-    border-radius: 4px;}
-  .submit-btn:hover, #submit-two:hover {
+#submit-two:hover {
     cursor: pointer;
     background: #ffffff;
     color: #242526;}
-  .submit-btn:disabled, #submit-two:disabled {
+#submit-two:disabled {
     background: #f4f4f4;
     color: #242526;
     border: 2px solid #f4f4f4;}
@@ -58,16 +44,10 @@ body {
     width: 100%;
     border-radius: 4px;
     position: relative;}
-  .total-cost, .total-cost-two, .total-cost-three, .total-cost-four, .total-cost-five, .proposal-one, .proposal-two {
-    text-align: left;
-    margin-bottom: 20px;}
-  .summary, .proposals {
+  .summary {
     text-align: left;
     margin-bottom: 20px;
     font-weight: bold;}
-  .disclaimer {
-    font-size: 12px;
-    text-align: left;}
   .calculating {
     font-weight: bold;
     position: absolute;
@@ -75,7 +55,7 @@ body {
     text-align: right;
     font-size: 20px;
     margin-right: 20px;}
-  .answer, .answer-two, .answer-three, .answer-four, .answer-five, .answer-proposal {
+  .answer {
     font-weight: bold;
     text-align: right;
     font-size: 16px;
@@ -99,12 +79,6 @@ body {
     padding-left: 10px;
     color: #333;
     margin-bottom: 20px;}
-.answer-proposal-two {
-    text-align: right;
-    font-size: 16px;
-    margin-right: 20px;
-    position: absolute;
-    right: 0;}
 #email-input{
     width: 242px;
     height: 38px;
