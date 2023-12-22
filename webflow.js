@@ -79,7 +79,11 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                 return pattern.test(value);
             }
             data.fees.forEach(fee => {
-              console.log(fee.value);
+              
+              decimal_index = fee.value.find('.')
+              if decimal_index != -1:
+                  fee.value = fee.value[:decimal_index]
+              
               if (isNegative(fee.value)) {
                   fee.value = 'TBD';
               } else if (fee.percentage) {
@@ -134,46 +138,6 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                 }
 
                 
-            
-                // if (item === 'Plan Assets' || item === 'Total Participants') {
-                //     const span = document.createElement('span');
-                //     span.id = `display-${item}`;
-                //     span.textContent = listvalue;
-                //     feeDiv.appendChild(span);
-                  
-                //     let itemwithoutDollar = listvalue.replace('$', '');
-                //     const inputWrapper = document.createElement('div');
-                //     inputWrapper.className = 'input-icon-container';
-
-
-                  
-                //     const input = document.createElement('input');
-                //     input.type = 'text';
-                //     input.id = `input-${item}`;
-                //     input.className = 'editable-input';
-                //     input.value = itemwithoutDollar;
-                //     input.style.display = 'none';
-                //     inputWrapper.appendChild(input);
-            
-                //     const pencilIcon = document.createElement('i');
-                //     pencilIcon.className = 'fas fa-pencil-alt edit-icon';
-                //     inputWrapper.appendChild(pencilIcon);
-            
-                //     feeDiv.appendChild(inputWrapper);
-            
-                //     pencilIcon.addEventListener('click', function() {
-                //         document.getElementById("analysisButton").disabled = false;
-                //         span.style.display = 'none';
-                //         input.style.display = 'inline';
-                //         input.focus();
-                //     });
-            
-                //     input.addEventListener('blur', function() {
-                //         span.textContent = input.value;
-                //         span.style.display = 'inline';
-                //         input.style.display = 'none';
-                //     });
-                // } 
               
               if (item === 'Plan Assets' || item === 'Total Participants') {
                    // Assuming this is the value you want to set in the input
