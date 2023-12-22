@@ -79,44 +79,46 @@ function sendDataToAPI(formData, fromPdf, endpoint) {
                 return pattern.test(value);
             }
             data.fees.forEach(fee => {
-              
-              decimal_index = fee.value.find('.')
-              if decimal_index != -1:
-                  fee.value = fee.value[:decimal_index]
+              let feeValue = fee.value;  // Assuming fee.value is your string
+              // Finding the index of the decimal point and slicing the string
+              let decimalIndex = feeValue.indexOf('.');
+              if (decimalIndex !== -1) {
+                  feeValue = feeValue.substring(0, decimalIndex);
+              }
               
               if (isNegative(fee.value)) {
-                  fee.value = 'TBD';
+                  feeValue = 'TBD';
               } else if (fee.percentage) {
-                  fee.value += ' (' + fee.percentage + ')';
+                  feeValue += ' (' + fee.percentage + ')';
               }
           
               switch (fee.name) {
                   case "Total Participants":
-                      feePart = fee.value;
+                      feePart = feeValue;
                       break;
                   case "Total Assets":
-                      totAssets = fee.value;
+                      totAssets = feeValue;
                       break;
                   case "Prop Funds":
-                      propFund = fee.value;
+                      propFund = feeValue;
                       break;
                   case "Net Investments":
-                      netInv = fee.value;
+                      netInv = feeValue;
                       break;
                   case "Total Admin":
-                      totAdmin = fee.value;
+                      totAdmin = feeValue;
                       break;
                   case "Total Investment Fee":
-                      totInvFee = fee.value;
+                      totInvFee = feeValue;
                       break;
                   case "Revenue Share":
-                      revShare = fee.value;
+                      revShare = feeValue;
                       break;
                   case "Adviser Fee":
-                      advFee = fee.value;
+                      advFee = feeValue;
                       break;
                   case "Total Cost":
-                      totCost = fee.value;
+                      totCost = feeValue;
                       break;
               } });
 
